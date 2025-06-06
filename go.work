@@ -1,0 +1,9 @@
+go 1.24.4
+
+toolchain go1.24.4
+
+use (
+	./ch1
+	./data_structures
+	./ssl
+)

@@ -7,7 +7,6 @@ import (
 
 func main() {
 
-
   trymap.TrySyncMap()
   trymap.TryTMap()
 }
