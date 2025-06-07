@@ -4,6 +4,10 @@ toolchain go1.24.4
 
 use (
 	./ch1
-	./data_structures
+	./ch2
+	./ds
+	./learning
 	./ssl
+	./string
+	./data
 )
