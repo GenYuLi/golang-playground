@@ -1,4 +1,4 @@
-package trie
+package prefix_tree
 
 func min(a, b int) int {
 	if a < b {
