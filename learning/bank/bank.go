@@ -1,12 +1,20 @@
 package bank
 
+import "slices"
+
 type Bank struct {
 	account []int64
 }
 
 func Constructor(balance []int64) Bank {
 	return Bank{
-		account: balance,
+		// reference to the slice, so if you might modify the balance slice outside this bank
+		// account: balance, // this will not work as expected, because it will modify the original slice
+
+		// a method to deep copy the slice, ... is a syntax to unpack the slice
+		// account: append([]int64{}, balance...),
+
+		account: slices.Clone(balance), // slices.copy is available in Go 1.19+
 	}
 }
 

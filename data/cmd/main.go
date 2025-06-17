@@ -17,4 +17,8 @@ func main() {
 	p := util.Dog{}
 	_ = p.Speak() // Call the Speak method of Dog
 	println(util.Add(20, 30.0))
+
+	util.TryGeometry()
+
+	util.TryEmbedding()
 }
