@@ -47,3 +47,32 @@ func (t *TrieNode) StartsWith(prefix string) bool {
 	}
 	return true
 }
+
+// CollectWordsFrom a given node.
+func (t *TrieNode) CollectWords(prefix string) []string {
+	var words []string
+	var dfs func(cur *TrieNode, currentWord string)
+
+	dfs = func(cur *TrieNode, currentWord string) {
+		if cur.IsWord {
+			words = append(words, currentWord)
+		}
+
+		for ch, child := range cur.Children {
+			dfs(child, currentWord+string(ch))
+		}
+	}
+
+	// 1. 先走到 prefix 的結尾節點
+	cur := t
+	for _, ch := range prefix {
+		if cur.Children[ch] == nil {
+			return words // 找不到 prefix，直接回傳空 slice
+		}
+		cur = cur.Children[ch]
+	}
+
+	// 2. 從 prefix 結尾節點開始收集所有單字
+	dfs(cur, prefix)
+	return words
+}
